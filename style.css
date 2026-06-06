@@ -1,0 +1,12 @@
+/* HVAC — Color overrides only. All structure in _shared/ */
+@import url('css/base.css');
+@import url('css/components.css');
+
+:root {
+  --clr-primary:    #1e4d8c;
+  --clr-primary-dk: #163a6b;
+  --clr-accent:     #f59e0b;
+}
+
+/* Accent buttons readable on amber */
+.btn-accent { color: var(--clr-gray-900); }
