@@ -10,7 +10,7 @@
   <meta property="og:type"        content="website">
   <meta property="og:title"       content="[BUSINESS_NAME] | HVAC Repair [CITY], [STATE]">
   <meta property="og:description" content="HVAC repair and installation in Cape Coral, FL. Same-day AC service, free estimates. Licensed &amp; insured.">
-  <meta property="og:url"         content="https://www.capecoralcomfort.com">
+  <meta property="og:url"         content="[OG_URL]">
   <meta property="og:site_name"   content="[BUSINESS_NAME]">
 
   <!-- Google Fonts: Inter -->
@@ -50,7 +50,7 @@
 ═══════════════════════════════════════════ -->
 <header class="site-header">
   <div class="container header-inner">
-    <a href="#" class="logo">Comfort<span>Solutions</span></a>
+    <a href="#" class="logo">[BUSINESS_NAME]</a>
 
     <!-- Checkbox toggle — pure CSS hamburger -->
     <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
@@ -156,7 +156,7 @@
   <div class="container about-inner">
     <div class="about-text">
       <span class="section-label">About Us</span>
-      <h2 class="section-title">Cape Coral's Trusted HVAC Team Since [YEAR_FOUNDED]</h2>
+      <h2 class="section-title">Cape Coral's Trusted HVAC Team <span class="since">Since <span class="since-year">[YEAR_FOUNDED]</span></span></h2>
       <p>Since [YEAR_FOUNDED], [BUSINESS_NAME] has been the trusted name in HVAC across Lee County. We started as a one-truck operation and grew through word of mouth — because we show up on time, charge fair prices, and stand behind our work.</p>
       <p>We're Florida locals who understand what it means when your AC goes down in August. That's why we offer same-day service, transparent pricing, and a 100% satisfaction guarantee on every job.</p>
       <p class="brand-line">Proud Carrier &amp; Trane dealer — top-tier equipment backed by expert local installation.</p>
@@ -287,11 +287,12 @@
       <a href="#" class="footer-logo">[BUSINESS_NAME]</a>
       <p class="footer-tagline">Keeping Cape Coral Cool Since [YEAR_FOUNDED]</p>
       <p>Licensed &amp; Insured HVAC Contractor</p>
-      <p class="license-line">License # CAC[LICENSE_NUMBER]</p>
+      <p class="license-line"><span class="license">[LICENSE_NUMBER]</span></p>
       <div class="footer-contact">
         <a href="tel:[PHONE]">[PHONE]</a>
         <a href="mailto:[EMAIL]">[EMAIL]</a>
-        <span>[ADDRESS], [CITY], [STATE] [ZIP]</span>
+        <span class="addr-street">[ADDRESS]</span>
+          <span class="addr-city">[CITY], [STATE] [ZIP]</span>
       </div>
     </div>
     <div class="footer-nav">
@@ -319,7 +320,10 @@
       <p>Friday: 7 AM – 5 PM</p>
       <p>Saturday: 8 AM – 2 PM</p>
       <p>Sunday: Emergency Only</p>
-      <p class="footer-address">[ADDRESS]<br>[CITY], [STATE] [ZIP]</p>
+      <p class="footer-address">
+        <span class="addr-street">[ADDRESS]</span>
+        <span class="addr-city">[CITY], [STATE] [ZIP]</span>
+      </p>
     </div>
   </div>
   <div class="footer-bottom">
@@ -329,6 +333,20 @@
   </div>
 </footer>
 
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  document.querySelectorAll('.license').forEach(el => {
+    if (!el.textContent.trim()) el.style.display = 'none';
+  });
+
+  document.querySelectorAll('.addr-street').forEach(el => {
+    if (!el.textContent.trim()) el.style.display = 'none';
+  });
+
+  document.querySelectorAll('.since-year').forEach(el => {
+    if (!el.textContent.trim()) el.closest('.since').remove();
+  });
+</script>
 </body>
 </html>
